@@ -60,10 +60,23 @@ export default class Toolbar extends React.Component {
 
       if (!selectionRect) return;
 
-      const position = {
+      let position = {
         top: (selectionRect.top - relativeRect.top) - toolbarHeight,
         left: (selectionRect.left - relativeRect.left) + (selectionRect.width / 2),
       };
+
+      let alteredPosition = false; 
+      let percentRight = (selectionRect.right / relativeRect.right) * 100; 
+
+      if (selectionRect.left < 48) {
+        position.left = position.left + 35; 
+        alteredPosition = true; 
+      }
+
+      if (percentRight >= 82 && !alteredPosition) {
+        position.left = position.left - 30; 
+      }
+
       this.setState({ position });
     });
   };

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'; 
 import { expect } from 'chai';
 import { mount } from 'enzyme';
 import Toolbar from '../index';
